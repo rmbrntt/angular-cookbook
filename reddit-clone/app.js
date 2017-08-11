@@ -1,16 +1,11 @@
-var app = angular.module('existentialNews', []);
+var app = angular.module('existentialNews', ['ui.router']);
 
 app.controller('MainCtrl', [
   '$scope',
-  function($scope){
-    $scope.posts = [
-      {title: 'post 1', link: '', upvotes: 3 },
-      {title: 'post 2', link: '', upvotes: 1 },
-      {title: 'post 3', link: '', upvotes: 23 },
-      {title: 'post 4', link: '', upvotes: 8 },
-      {title: 'post 5', link: '', upvotes: 4 }
-    ];
-    $scope.addPost = function(){
+  'posts',
+  function($scope, posts) {
+    $scope.posts = posts.posts;
+    $scope.addPost = function() {
       if(!$scope.title || $scope.title === '') { return; }
       $scope.posts.push({
         title: $scope.title,
@@ -18,9 +13,30 @@ app.controller('MainCtrl', [
         upvotes: 0 });
       $scope.title = '';
       $scope.link = '';
-    }
+    };
     $scope.incrementUpvotes = function(post) {
       post.upvotes += 1;
     };
+  }
+])
+
+app.factory('posts', [function(){
+  var o = {
+    posts: []
+  };
+  return o;
+}])
+
+app.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl'
+    })
+    $urlRouterProvider.otherwise('home');
   }
 ])
