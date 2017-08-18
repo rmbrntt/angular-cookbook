@@ -5,7 +5,11 @@ function TaskConfig($httpProvider, $stateProvider){
 
   .state('app.task', {
     url: '/task',
-    urlTemplate: 'task/task.html'
+    controller: 'TaskCtrl as $ctrl',
+    templateUrl: 'task/task.html'
   })
 
 }
+
+
+export default TaskConfig;

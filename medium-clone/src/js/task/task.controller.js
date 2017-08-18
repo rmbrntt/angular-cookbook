@@ -1,5 +1,3 @@
-
-
 class TaskCtrl {
   constructor($state){
     'ngInject';
