@@ -6,7 +6,6 @@ class TaskCtrl {
   }
 
   saveTask(){
-    console.log({"description": this.description});
     this.tasks.push({"description": this.description});
     this.description = '';
   }
