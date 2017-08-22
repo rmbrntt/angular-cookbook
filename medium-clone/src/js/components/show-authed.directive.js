@@ -7,25 +7,26 @@ function ShowAuthed(User) {
       scope.User = User;
 
       scope.$watch('User.current', function(val) {
-        if (val) {
-          if (attrs.showAuthed === 'true') {
-            element.css({display: 'inherit'})
+          // If user detected
+          if (val) {
+            if (attrs.showAuthed === 'true') {
+              element.css({ display: 'inherit'})
+            } else {
+              element.css({ display: 'none'})
+            }
+
+          // no user detected
+          } else {
+            if (attrs.showAuthed === 'true') {
+              element.css({ display: 'none'})
+            } else {
+              element.css({ display: 'inherit'})
+            }
           }
-          else {
-            element.css({display: 'none'})
-          }
-        }
-        else {
-          if (attrs.showAuthed === 'true') {
-            element.css({display: 'none'})
-          }
-          else {
-            element.css({display: 'inherit'})
-          }
-        }
-      })
+      });
+
     }
-  }
+  };
 }
 
 export default ShowAuthed;

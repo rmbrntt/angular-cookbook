@@ -1,4 +1,4 @@
-function SettingsConfig($stateProvider){
+function SettingsConfig($stateProvider) {
   'ngInject';
 
   $stateProvider
@@ -8,12 +8,12 @@ function SettingsConfig($stateProvider){
     controllerAs: '$ctrl',
     templateUrl: 'settings/settings.html',
     title: 'Settings',
-    resolve:{
+    resolve: {
       auth: function(User) {
         return User.ensureAuthIs(true);
       }
     }
-  })
-}
+  });
+};
 
 export default SettingsConfig;

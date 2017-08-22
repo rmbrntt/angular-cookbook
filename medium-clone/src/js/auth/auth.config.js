@@ -1,7 +1,8 @@
-function AuthConfig($stateProvider, $httpProvider){
+function AuthConfig($stateProvider, $httpProvider) {
   'ngInject';
 
   $stateProvider
+
   .state('app.login', {
     url: '/login',
     controller: 'AuthCtrl as $ctrl',
@@ -25,6 +26,7 @@ function AuthConfig($stateProvider, $httpProvider){
       }
     }
   });
+
 };
 
 export default AuthConfig;

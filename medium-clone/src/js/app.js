@@ -15,7 +15,10 @@ import './profile';
 import './article';
 import './services';
 import './auth';
+import './settings';
 import './task';
+import './quote';
+
 
 // Create and bootstrap application
 const requires = [
@@ -28,6 +31,8 @@ const requires = [
   'app.article',
   'app.services',
   'app.auth',
+  'app.settings',
+  'app.quote',
   'app.task'
 ];
 
